@@ -7,9 +7,16 @@ type User {
   name: String!
 }
 
+type Item {
+  id: Float!
+  name: String!
+  description: String!
+}
+
 type Query {
   users: [User!]!
   user(id: Int!): User!
+  Items: [Item!]!
 }
 
 type Mutation {
