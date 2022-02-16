@@ -17,6 +17,6 @@ model User {
 
 model Item {
   id        Int     @default(autoincrement()) @id
-  title     String
+  name     String
   description   String
 }

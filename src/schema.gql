@@ -8,7 +8,6 @@ type User {
 }
 
 type Item {
-  id: Float!
   name: String!
   description: String!
 }
@@ -23,6 +22,7 @@ type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: Int!): User!
+  createItem(createItemInput: CreateItemInput!): Item!
 }
 
 input CreateUserInput {
@@ -33,4 +33,10 @@ input CreateUserInput {
 input UpdateUserInput {
   id: Float
   name: String!
+}
+
+input CreateItemInput {
+  id: Float!
+  name: String!
+  description: String!
 }
