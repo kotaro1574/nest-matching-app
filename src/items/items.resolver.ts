@@ -1,7 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Item } from './entities/item.entity';
 import { ItemsService } from './items.service';
-import { CreateItemInput } from './dto/create-item.input';
+import { Prisma } from '@prisma/client';
 
 @Resolver(() => Item)
 export class ItemsResolver {
@@ -13,7 +13,7 @@ export class ItemsResolver {
   }
 
   @Mutation(() => Item)
-  createItem(@Args('createItemInput') createItemInput: CreateItemInput) {
-    return this.itemsService.create(createItemInput);
+  createItem(@Args() data: Prisma.ItemCreateInput) {
+    return this.itemsService.create(data);
   }
 }
